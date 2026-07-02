@@ -1,0 +1,23 @@
+package bankingsystem;
+
+public class SavingsAccount extends BankAccount {
+
+    private double interestRate;
+
+    public SavingsAccount(int accountNumber, String customerName,
+                          double balance, double interestRate) {
+
+        super(accountNumber, customerName, balance);
+        this.interestRate = interestRate;
+    }
+
+    @Override
+    public void displayAccountInfo() {
+
+        System.out.println("\nSavings Account");
+        System.out.println("Account No: " + getAccountNumber());
+        System.out.println("Customer Name: " + getCustomerName());
+        System.out.println("Balance: " + getBalance());
+        System.out.println("Interest Rate: " + interestRate + "%");
+    }
+}

@@ -1,0 +1,37 @@
+package bankingsystem;
+
+abstract class BankAccount {
+
+    private int accountNumber;
+    private String customerName;
+    private double balance;
+
+    public BankAccount(int accountNumber, String customerName, double balance) {
+        this.accountNumber = accountNumber;
+        this.customerName = customerName;
+        this.balance = balance;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        balance = balance + amount;
+        System.out.println(amount + " deposited successfully.");
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public abstract void displayAccountInfo();
+}
