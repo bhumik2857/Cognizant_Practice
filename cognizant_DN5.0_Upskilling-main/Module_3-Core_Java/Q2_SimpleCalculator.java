@@ -1,24 +1,51 @@
 import java.util.Scanner;
 
 public class Q2_SimpleCalculator {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        // Simple calculator program
+        Scanner scanner = new Scanner(System.in);
+
         System.out.print("Enter first number: ");
-        double a = sc.nextDouble();
+        double firstNumber = scanner.nextDouble();
+
         System.out.print("Enter second number: ");
-        double b = sc.nextDouble();
+        double secondNumber = scanner.nextDouble();
+
         System.out.print("Choose operation (+, -, *, /): ");
-        char op = sc.next().charAt(0);
+        char operation = scanner.next().charAt(0);
+
         double result;
-        switch (op) {
-            case '+': result = a + b; break;
-            case '-': result = a - b; break;
-            case '*': result = a * b; break;
+
+        switch (operation) {
+            case '+':
+                result = firstNumber + secondNumber;
+                break;
+
+            case '-':
+                result = firstNumber - secondNumber;
+                break;
+
+            case '*':
+                result = firstNumber * secondNumber;
+                break;
+
             case '/':
-                if (b == 0) { System.out.println("Cannot divide by zero."); return; }
-                result = a / b; break;
-            default: System.out.println("Invalid operator."); return;
+                if (secondNumber == 0) {
+                    System.out.println("Error: Division by zero is not allowed.");
+                    scanner.close();
+                    return;
+                }
+                result = firstNumber / secondNumber;
+                break;
+
+            default:
+                System.out.println("Invalid operator entered.");
+                scanner.close();
+                return;
         }
+
         System.out.println("Result: " + result);
+        scanner.close();
     }
 }
