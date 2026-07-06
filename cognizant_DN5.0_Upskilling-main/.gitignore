@@ -1,0 +1,8 @@
+# IntelliJ / IDEA
+*.iml
+.idea/
+
+# Eclipse / Java build output
+out/
+bin/
+target/
