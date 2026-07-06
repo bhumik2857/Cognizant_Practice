@@ -1,11 +1,19 @@
 import java.util.Scanner;
 
 public class Q5_MultiplicationTable {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+
         System.out.print("Enter a number: ");
-        int n = sc.nextInt();
-        for (int i = 1; i <= 10; i++)
-            System.out.println(n + " x " + i + " = " + (n * i));
+        int number = scanner.nextInt();
+
+        System.out.println("\nMultiplication Table of " + number + ":");
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(number + " x " + i + " = " + (number * i));
+        }
+
+        scanner.close();
     }
 }
