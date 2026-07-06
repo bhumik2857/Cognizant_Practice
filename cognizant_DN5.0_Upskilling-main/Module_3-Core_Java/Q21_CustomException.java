@@ -1,22 +1,36 @@
 import java.util.Scanner;
 
 class InvalidAgeException extends Exception {
-    InvalidAgeException(String msg) { super(msg); }
+
+    public InvalidAgeException(String message) {
+        super(message);
+    }
 }
 
 public class Q21_CustomException {
-    static void checkAge(int age) throws InvalidAgeException {
-        if (age < 18) throw new InvalidAgeException("Age " + age + " is invalid. Must be 18+.");
+
+    // Checks whether the entered age satisfies the minimum requirement.
+    public static void checkAge(int age) throws InvalidAgeException {
+        if (age < 18) {
+            throw new InvalidAgeException(
+                    "Age " + age + " is invalid. Minimum age required is 18.");
+        }
     }
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+
+        Scanner scanner = new Scanner(System.in);
+
         System.out.print("Enter age: ");
-        int age = sc.nextInt();
+        int age = scanner.nextInt();
+
         try {
             checkAge(age);
             System.out.println("Access granted.");
-        } catch (InvalidAgeException e) {
-            System.out.println("Exception: " + e.getMessage());
+        } catch (InvalidAgeException exception) {
+            System.out.println("Exception: " + exception.getMessage());
+        } finally {
+            scanner.close();
         }
     }
 }
